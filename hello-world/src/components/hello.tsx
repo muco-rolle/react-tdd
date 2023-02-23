@@ -5,10 +5,18 @@ type HelloProps = {
 
 export function Hello({ name, lang }: HelloProps) {
   let content;
-  if (lang === "ki") {
-    content = `Amahoro, ${name || "World"}`;
-  } else {
-    content = `Hello, ${name || "World"}`;
+
+  switch (lang) {
+    case "ki":
+      content = `Amahoro, ${name}`;
+      break;
+    case "fr":
+      content = `Salut, ${name}`;
+      break;
+    default:
+      content = `Hello, ${name || "World"}`;
+      break;
   }
+
   return <h1>{content}</h1>;
 }
