@@ -26,4 +26,9 @@ describe("<Hello />", () => {
     render(<Hello name="Muco" />);
     expect(document.body.textContent).toContain("Hello, Muco");
   });
+
+  it("greets a person by name in Kirundi", () => {
+    render(<Hello name="Muco" lang="ki" />);
+    expect(document.body.textContent).toContain("Amahoro, Muco");
+  });
 });
