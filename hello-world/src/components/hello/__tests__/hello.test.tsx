@@ -32,7 +32,7 @@ describe("<Hello />", () => {
     expect(document.body.textContent).toContain("Amahoro, Muco");
   });
 
-  it("greets a pereson by name in French", () => {
+  it("  ", () => {
     render(<Hello name="Muco" lang="fr" />);
     expect(document.body.textContent).toContain("Salut, Muco");
   });
