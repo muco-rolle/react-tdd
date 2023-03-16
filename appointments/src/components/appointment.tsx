@@ -7,5 +7,5 @@ type AppointmentProps = {
 };
 
 export function Appointment({ customer }: AppointmentProps) {
-  return <h1>Ashley</h1>;
+  return <h1>{customer.firstName}</h1>;
 }
