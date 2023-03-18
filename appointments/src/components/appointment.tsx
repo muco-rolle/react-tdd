@@ -3,12 +3,15 @@ import type {
   AppointmentsDayViewProps,
 } from "./appointment.types";
 
-export function AppointmentsDayView({}: AppointmentsDayViewProps) {
+export function AppointmentsDayView({
+  appointments,
+}: AppointmentsDayViewProps) {
   return (
     <div id="appointments-day-view">
       <ol>
-        <li>12:00</li>
-        <li>13:00</li>
+        {appointments.map(({ startsAt }) => (
+          <li key={startsAt} />
+        ))}
       </ol>
     </div>
   );
