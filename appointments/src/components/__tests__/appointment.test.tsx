@@ -62,4 +62,19 @@ describe("AppointmentDayView", () => {
     const elements = document.querySelectorAll("li");
     expect(elements).toHaveLength(2);
   });
+
+  it("renders the time of each appointment", () => {
+    const today = new Date();
+    const appointments = [
+      { startsAt: today.setHours(12, 0) },
+      { startsAt: today.setHours(13, 0) },
+    ];
+
+    render(<AppointmentsDayView appointments={appointments} />);
+
+    const elements = document.querySelectorAll("li");
+
+    expect(elements[0].textContent).toEqual("12:00");
+    expect(elements[1].textContent).toEqual("13:00");
+  });
 });

@@ -1,3 +1,4 @@
+import { toDayTime } from "../utils/date";
 import type {
   AppointmentProps,
   AppointmentsDayViewProps,
@@ -10,7 +11,7 @@ export function AppointmentsDayView({
     <div id="appointments-day-view">
       <ol>
         {appointments.map(({ startsAt }) => (
-          <li key={startsAt} />
+          <li key={startsAt}>{toDayTime(startsAt)}</li>
         ))}
       </ol>
     </div>
