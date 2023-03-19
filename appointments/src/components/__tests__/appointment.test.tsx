@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 import { Appointment, AppointmentsDayView } from "../appointment";
+import { Appointments } from "../appointment.types";
 
 describe("Appointment", () => {
   let container: HTMLDivElement;
@@ -33,9 +34,9 @@ describe("AppointmentDayView", () => {
 
   const today = new Date();
   const appointments = [
-    { startsAt: today.setHours(12, 0) },
-    { startsAt: today.setHours(13, 0) },
-  ];
+    { startsAt: today.setHours(12, 0), customer: { firstName: "Ashley" } },
+    { startsAt: today.setHours(13, 0), customer: { firstName: "Jordan" } },
+  ] as Appointments;
 
   const render = (component: ReactNode) => {
     return act(() => createRoot(container).render(component));
@@ -70,5 +71,17 @@ describe("AppointmentDayView", () => {
 
     expect(elements[0].textContent).toEqual("12:00");
     expect(elements[1].textContent).toEqual("13:00");
+  });
+
+  it("initially shows a message saying that they are no appointments today", () => {
+    render(<AppointmentsDayView appointments={[]} />);
+    expect(document.body.textContent).toContain(
+      "There are no appointments scheduled for today."
+    );
+  });
+
+  it("selects the first appointment by default", () => {
+    render(<AppointmentsDayView appointments={appointments} />);
+    expect(document.body.textContent).toContain("Ashley");
   });
 });

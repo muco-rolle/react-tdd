@@ -2,14 +2,13 @@ export type Customer = {
   firstName: string;
 };
 
-export type AppointmentProps = {
+export type tAppointment = {
+  startsAt: number;
   customer: Customer;
 };
 
-type Appointment = {
-  startsAt: number;
-};
+export type Appointments = Array<tAppointment>;
 
 export type AppointmentsDayViewProps = {
-  appointments: Array<Appointment>;
+  appointments: Appointments;
 };
