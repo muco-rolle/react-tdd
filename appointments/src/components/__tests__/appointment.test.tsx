@@ -93,4 +93,16 @@ describe("AppointmentDayView", () => {
     expect(buttons[0].type).toEqual("button");
     expect(buttons[0].type).toEqual("button");
   });
+
+  it("renders an appointment that was selected", () => {
+    render(<AppointmentsDayView appointments={appointments} />);
+    const buttons = document.querySelectorAll(
+      'button[type="button"]'
+    ) as NodeListOf<HTMLButtonElement>;
+
+    const button = buttons[1];
+    act(() => button.click());
+
+    expect(document.body.textContent).toContain("Jordan");
+  });
 });
