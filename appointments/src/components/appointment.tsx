@@ -13,7 +13,9 @@ export function AppointmentsDayView({
       )}
       <ol>
         {appointments.map(({ startsAt }) => (
-          <li key={startsAt}>{toDayTime(startsAt)}</li>
+          <li key={startsAt}>
+            <button type="button">{toDayTime(startsAt)}</button>
+          </li>
         ))}
       </ol>
     </div>
