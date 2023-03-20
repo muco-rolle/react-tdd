@@ -1,0 +1,1 @@
+export { AppointmentsDayView } from "./appointment";
