@@ -1,3 +1,5 @@
+import { AppointmentDayTime } from "./appointment-day-time";
+
 type Time = {
   startsAt: number;
 };
@@ -10,7 +12,9 @@ export function AppointmentDayTimes({ times }: AppointmentDayTimesProps) {
   return (
     <ol>
       {times.map(({ startsAt }) => (
-        <li key={startsAt}></li>
+        <li key={startsAt}>
+          <AppointmentDayTime time={startsAt} />
+        </li>
       ))}
     </ol>
   );
