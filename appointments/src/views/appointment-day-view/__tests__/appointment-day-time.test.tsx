@@ -25,5 +25,3 @@ describe("AppointmentDayTime", () => {
     expect(document.body.textContent).toEqual("12:00");
   });
 });
-
-export {};
