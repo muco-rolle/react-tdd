@@ -15,5 +15,9 @@ type AppointmentDetailProps = {
 
 export function AppointmentDetail({ appointment }: AppointmentDetailProps) {
   const { startsAt } = appointment;
-  return <h1>Today's appointmenent at {toDayTime(startsAt)}</h1>;
+  return (
+    <h1 className="font-bold text-2xl">
+      Today's appointmenent at {toDayTime(startsAt)}
+    </h1>
+  );
 }

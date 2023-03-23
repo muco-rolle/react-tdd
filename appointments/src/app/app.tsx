@@ -1,6 +1,10 @@
-import { AppointmentsDayView } from "../components";
 import { data } from "../data";
+import { AppointmentDayView } from "../views";
 
 export function App() {
-  return <AppointmentsDayView appointments={data.appointments} />;
+  return (
+    <>
+      <AppointmentDayView appointments={data.appointments} />
+    </>
+  );
 }
