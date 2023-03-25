@@ -1,19 +1,9 @@
-import { ReactNode } from "react";
-import { createRoot } from "react-dom/client";
-import { act } from "react-dom/test-utils";
+import { initializeReactContainer, render } from "../../../../test";
 import { AppointmentDayTime } from "../appointment-day-time";
 
 describe("AppointmentDayTime", () => {
-  let container: HTMLDivElement;
-  const render = (component: ReactNode) => {
-    return act(() => {
-      return createRoot(container).render(component);
-    });
-  };
-
   beforeEach(() => {
-    container = document.createElement("div");
-    document.body.replaceChildren(container);
+    initializeReactContainer();
   });
 
   it("renders button element and displays a day time", () => {

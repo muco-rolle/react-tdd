@@ -1,7 +1,8 @@
 import { act } from "react-dom/test-utils";
 import { AppointmentDayView } from "../appointment-day.view";
 
-import { initializeReactContainer, render } from "../../../../test";
+import { click, initializeReactContainer, render } from "../../../../test";
+
 describe("AppointmentDayView", () => {
   const today = new Date();
   const appointments = [
@@ -63,7 +64,8 @@ describe("AppointmentDayView", () => {
     const button = document.querySelector(
       'button[type="button"]'
     ) as HTMLButtonElement;
-    act(() => button.click());
+
+    click(button);
 
     const result = button.className;
 

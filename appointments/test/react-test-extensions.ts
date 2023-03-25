@@ -14,3 +14,11 @@ export const render = (component: ReactNode) => {
     return createRoot(container).render(component);
   });
 };
+
+export const click = (element: HTMLButtonElement) => {
+  return act(() => element.click());
+};
+
+export const test = {
+  group: describe,
+};

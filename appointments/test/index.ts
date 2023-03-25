@@ -1,1 +1,1 @@
-export { initializeReactContainer, render } from "./react-test-extensions";
+export * from "./react-test-extensions";
