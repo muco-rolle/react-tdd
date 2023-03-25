@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
-import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 import { AppointmentDayView } from "../appointment-day.view";
 
+import { initializeReactContainer, render } from "../../../../test";
 describe("AppointmentDayView", () => {
   const today = new Date();
   const appointments = [
@@ -10,16 +9,8 @@ describe("AppointmentDayView", () => {
     { startsAt: today.setHours(13, 0), customer: { firstName: "Ashley" } },
   ];
 
-  let container: HTMLDivElement;
-  const render = (component: ReactNode) => {
-    return act(() => {
-      return createRoot(container).render(component);
-    });
-  };
-
   beforeEach(() => {
-    container = document.createElement("div");
-    document.body.replaceChildren(container);
+    initializeReactContainer();
   });
 
   it("renders no appointments for today if there's no one", () => {
@@ -88,5 +79,12 @@ describe("AppointmentDayView", () => {
     expect(buttons[0].className).toContain("purple");
     expect(buttons[1].className).to.not.contain("purple");
   });
-  it.skip("it has a gray color if it has been selected", () => {});
+  it("it has a gray color if it has been selected", () => {
+    render(<AppointmentDayView appointments={appointments} />);
+    const buttons = document.querySelectorAll(
+      'button[type="button"]'
+    ) as NodeListOf<HTMLButtonElement>;
+
+    expect(buttons[1].className).toContain("gray");
+  });
 });
