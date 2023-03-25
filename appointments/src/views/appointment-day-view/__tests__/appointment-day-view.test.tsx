@@ -79,6 +79,14 @@ describe("AppointmentDayView", () => {
     console.log(result);
     expect(result).toContain("purple");
   });
-  it.skip("it does not have purple color if has not been selected", () => {});
+  it("it does not add a purple color if the button has not been selected", () => {
+    render(<AppointmentDayView appointments={appointments} />);
+    const buttons = document.querySelectorAll(
+      'button[type="button"]'
+    ) as NodeListOf<HTMLButtonElement>;
+
+    expect(buttons[0].className).toContain("purple");
+    expect(buttons[1].className).to.not.contain("purple");
+  });
   it.skip("it has a gray color if it has been selected", () => {});
 });
