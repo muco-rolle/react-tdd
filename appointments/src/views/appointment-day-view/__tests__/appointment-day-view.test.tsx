@@ -66,4 +66,19 @@ describe("AppointmentDayView", () => {
 
     expect(elements).toHaveLength(2);
   });
+
+  it("it adds a purple color to the button if it has been selected", () => {
+    render(<AppointmentDayView appointments={appointments} />);
+    const button = document.querySelector(
+      'button[type="button"]'
+    ) as HTMLButtonElement;
+    act(() => button.click());
+
+    const result = button.className;
+
+    console.log(result);
+    expect(result).toContain("purple");
+  });
+  it.skip("it does not have purple color if has not been selected", () => {});
+  it.skip("it has a gray color if it has been selected", () => {});
 });

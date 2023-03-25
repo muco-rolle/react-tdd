@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants";
+import { tv, VariantProps } from "tailwind-variants";
 
 export const button = tv({
   base: "px-3 py-2 text-xs font-medium text-center rounded-lg  focus:ring-4 focus:outline-none ",
@@ -15,3 +15,5 @@ export const button = tv({
     color: "gray",
   },
 });
+
+export type ButtonVariantProps = VariantProps<typeof button>;
